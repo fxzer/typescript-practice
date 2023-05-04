@@ -38,3 +38,8 @@ interface ISearchFunc {
 let mySearch: ISearchFunc = function (source: string, subString: string) {
   return source.search(subString) !== -1 ;
 }
+
+
+
+type PersonMap1 = Record<'name', string>; // { name: string; }
+type PersonMap2= Record<number, string>; // { [index: number]: Person }

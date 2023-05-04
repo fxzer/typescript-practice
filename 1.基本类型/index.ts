@@ -71,7 +71,11 @@ console.log("[ Reflect.ownKeys(symbolObj) ]-71", Reflect.ownKeys(symbolObj));
 
 
 
+function foo(): never {
+  throw new Error()
+}
 
+const a: 1 = foo(); // 可以赋值，类型不会报错就证明了 never 类型是 1 的子类型
 
 
 
@@ -112,3 +116,25 @@ type newNum4 = 1 extends Object ? true : false //true
 
 type newNum5 = 1 extends never ? true : false //false
 type newNum6 = 1 extends Boolean ? true : false //false
+
+
+/* =================== 字符串操作  ===================*/
+
+/* 1 去除字符串中 _ */
+type DelUnderline<T extends string> = T extends `${infer LeftWords}_${infer RightWords}` 
+    ? `${LeftWords}${RightWords}` 
+    : T;
+
+// 测试用例 
+type HelloWorld = DelUnderline<'hello_world'>; // helloworld（LeftWords 为 hello，RightWords 为 world）
+type World = DelUnderline<'_world'>; // world（LeftWords 为空字符串，RightWords 为 world）
+type Hello = DelUnderline<'hello_'>; // hello（LeftWords 为 hello，RightWords 为空字符串）
+
+/* 2.首字母大写 */
+type MyCapitalize<T extends string> = T extends `${infer First}${infer Rest}` 
+    ? `${Uppercase<First>}${Rest}` 
+    : T;
+
+type cap1 = MyCapitalize<'hello'>; // "Hello"（First 为 "h"，Rest 为 "ello"）
+type cap2 = MyCapitalize<'bA'>; // "B" （First 为 "h"，Rest 为空字符串）
+type cap3 = MyCapitalize<''>; // 当为空字符串时，会走到 false 的分支，返回空字符串

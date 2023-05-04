@@ -64,5 +64,29 @@ uperson1 = name1 //正确
 uperson1 = age1 //正确
 uperson1 = nameAndAge //正确
 
+/* 父子关系 */
+type TParent =  'a' | 'b' | 'c';
+type TChild = 'a' | 'b';
+type isSub = TChild extends TParent ? true : false; //true
 
-type PartialPerson = Partial<InterPerson>; //Partial<T> 的作用就是将某个类型里的属性全部变为可选项 ?。
+
+/* 联合类型条件判断 */
+
+type FooCon<T> = T extends 'a' | 'b' ? `${T}1` : T;
+
+type foores = FooCon<'a' | 'b' | 'c'> //  "c" | "a1" | "b1"
+
+/* 接口泛型 推导 */
+interface Cat {
+  type: '🐱';
+  food: string[]; 
+}
+interface Dog {
+  type: '🐶';
+  food: string[];
+}
+type Animal = Cat | Dog;
+
+type LookUp<U, T> = U extends { type: T } ? U : never;
+
+type lookres = LookUp<Animal, '🐶'> // Dog
