@@ -3,7 +3,7 @@
 const request = {
   get<T>(url: string): Promise<T> {
     return new Promise((resolve, reject) => {
-      let xhr: XMLHttpRequest = new XMLHttpRequest()
+      const xhr: XMLHttpRequest = new XMLHttpRequest()
       xhr.open('GET', url, true)
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
@@ -12,12 +12,12 @@ const request = {
       }
       xhr.send(null)
     })
-  }
+  },
 }
 interface Data {
-  message: string,
+  message: string
   code: number
 }
-request.get<Data>('./data.json').then(res => {
-  console.log('res', res);
+request.get<Data>('./data.json').then((res) => {
+  console.log('res', res)
 })

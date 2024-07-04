@@ -2,24 +2,24 @@
 // 2.DOM querySelect MouseEvent
 // 3.BOM promise localStorage location cookie
 
-let num: Number = new Number()
-num = 123;
+let num: number = new Number()
+num = 123
 // num = '123' //报错
 
-let date: Date = new Date();
-let reg: RegExp = new RegExp(/\s/g);
-let error: Error = new Error('类型错误!');
-let xhr: XMLHttpRequest = new XMLHttpRequest()
+const date: Date = new Date()
+const reg: RegExp = new RegExp(/\s/g)
+const error: Error = new Error('类型错误!')
+const xhr: XMLHttpRequest = new XMLHttpRequest()
 
 /* DOM */
-let div = document.querySelector('div');  //Element HTMLElement
-let divs = document.querySelectorAll('div'); //NodeList NodeListOf<Element> NodeListOf<HTMLElement> NodeListOf
-let input = document.querySelector('input'); //HTMLInputElement
+const div = document.querySelector('div') // Element HTMLElement
+const divs = document.querySelectorAll('div') // NodeList NodeListOf<Element> NodeListOf<HTMLElement> NodeListOf
+const input = document.querySelector('input') // HTMLInputElement
 
 /* BOM */
-let local:Storage = localStorage;
-let locat:Location = window.location;
-let proms:Promise<number> = new Promise((resolve,reject)=>{
+const local: Storage = localStorage
+const locat: Location = window.location
+const proms: Promise<number> = new Promise((resolve, reject) => {
   resolve(123)
 })
-let cook:string = document.cookie; //特殊
+const cook: string = document.cookie // 特殊

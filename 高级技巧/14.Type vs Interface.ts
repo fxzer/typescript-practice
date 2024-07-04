@@ -1,4 +1,4 @@
-/* 
+/*
   type                                interface
 
   unions                            extends
@@ -8,41 +8,38 @@
 
 */
 
-/*  === type ===*/
-type TPoint2D = {
-  x: number;
-  y: number;
-};
-
-type TPoint3D = {  z: number; } & TPoint2D; //交叉类型
-
-
-
-/*  === interface ===*/
-interface IPoint2D {
-  x: number;
-  y: number;
+/*  === type === */
+interface TPoint2D {
+  x: number
+  y: number
 }
-interface IPoint3D extends IPoint2D { //继承
+
+type TPoint3D = { z: number } & TPoint2D // 交叉类型
+
+/*  === interface === */
+interface IPoint2D {
+  x: number
+  y: number
+}
+interface IPoint3D extends IPoint2D { // 继承
   // x: number;
   // y: number;
-  z: number;
+  z: number
 }
 
-const point1: TPoint2D = { x: 1, y: 2 };
-const point3: TPoint3D = { x: 1, y: 2, z: 3 };
+const point1: TPoint2D = { x: 1, y: 2 }
+const point3: TPoint3D = { x: 1, y: 2, z: 3 }
 
+const point2: IPoint2D = { x: 1, y: 2 }
+const point4: IPoint3D = { x: 1, y: 2, z: 3 }
 
-const point2: IPoint2D = { x: 1, y: 2 };
-const point4: IPoint3D = { x: 1, y: 2, z: 3 };
-
-//接口实现
+// 接口实现
 class pointExample1 implements IPoint2D {
-  x = 1;
-  y = 2;
+  x = 1
+  y = 2
 }
 class pointExample implements IPoint3D {
-  x = 1;
-  y = 2;
-  z = 3;
+  x = 1
+  y = 2
+  z = 3
 }
