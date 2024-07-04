@@ -27,18 +27,10 @@ type Tuple2 = readonly [1, number];
 let tuple2: Tuple2 = [1, 2];
 // tuple2[0] = 3; // ❌ Error: readonly 无法为“0”赋值，因为它是只读属性。
 
-/* 数组 */
-let arr1 = [1, 2, 3];
-arr1[0] = 3; // ✅ OK: 数组是可变的。
 
-/* 只读数组 */
-type Arr1 = readonly number[];
-let arr2: Arr1 = [1, 2, 3];
-// arr2[0] = 3; // ❌ Error: readonly 
-
-tuple2 = tuple1; // 非只读 可以赋值给 只读的
-// tuple1 = tuple2; // ❌ 只读的元组 不能赋值给 非只读的
-// tuple2[0] = 3; // ❌  非只读 赋给 只读的 后，也变得只读了
+let tuple3 = tuple1; // 非只读 可以赋值给 只读的
+// tuple1 = tuple3; // ❌ 只读的元组 不能赋值给 非只读的
+// tuple3[0] = 3; // ❌  非只读 赋给 只读的 后，也变得只读了
 
 
 // JS 合并两个数组

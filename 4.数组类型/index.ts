@@ -9,6 +9,14 @@ let array2:Array<number> = [1,2,3,4,5,6,7,8,9,10]  //泛型数组：Array<number
 //4.数组类型的接口只能用于数组，而泛型可以用于数组、对象、函数等
 //5.泛型可以指定默认类型、多个类型、类型范围、类型约束、类型别名，而数组类型的接口不可以
 
+/* 数组 */
+let arr1 = [1, 2, 3];
+arr1[0] = 3; // ✅ OK: 数组是可变的。
+
+/* 只读数组 */
+type Arr1 = readonly number[];
+let arr2: Arr1 = [1, 2, 3];
+// arr2[0] = 3; // ❌ Error: readonly 
 
 
 /* 对象数组 */
@@ -38,12 +46,11 @@ let array4: Array<Array<number>> = [
   [4, 5, 6],
 ]
 
-/* 元组 */
-let tuple2: [string, number,boolean,object] = ['tom', 18,true,{}]
+
 
 function test2(...args:number[]){
   console.log(args)
 }
-// test1('tom','jerry','jack')
-test1(1,2,3,4,5,6,7,8,9,10)
-// test1(array4) //类型“number[][]”的参数不能赋给类型“number”的参数。
+// test2('tom','jerry','jack') //  类型“string”的参数不能赋给类型“number”的参数。   ❌
+test2(1,2,3,4,5,6,7,8,9,10) // ✅
+// test2(array4) //类型“number[][]”的参数不能赋给类型“number”的参数。
