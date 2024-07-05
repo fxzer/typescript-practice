@@ -2,14 +2,16 @@
 // 2.DOM querySelect MouseEvent
 // 3.BOM promise localStorage location cookie
 
-let num: number = new Number()
+// let num: number = new Number() // ❌
+//
+// eslint-disable-next-line import/no-mutable-exports
+export let num = 12
 num = 123
-// num = '123' //报错
 
-const date: Date = new Date()
-const reg: RegExp = new RegExp(/\s/g)
-const error: Error = new Error('类型错误!')
-const xhr: XMLHttpRequest = new XMLHttpRequest()
+const date = new Date() // Date
+const reg = /\s/g // RegExp
+const error = new Error('类型错误!') // Error
+const xhr = new XMLHttpRequest() // XMLHttpRequest
 
 /* DOM */
 const div = document.querySelector('div') // Element HTMLElement

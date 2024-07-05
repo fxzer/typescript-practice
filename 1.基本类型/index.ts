@@ -41,8 +41,9 @@ function nerverFn2(hobby: Hobby) {
       break
     // 兜底逻辑处理
     default:
-      const check: never = hobby
+    { const hobby2: never = hobby
       break
+    }
   }
 }
 
@@ -51,10 +52,10 @@ const symbol1 = Symbol('hello')
 const symbol2 = Symbol('hello')
 console.log(symbol1)
 console.log(symbol2)
-console.log(symbol1 === symbol2) // false
+// console.log(symbol1 === symbol2) // false
 
-// 如何让symbol1 === symbol2 ？ Symbol.for() ：创建全局唯一的值 ，如果存在就返回，不存在就创建
-console.log('symbol1 === symbol2:', Symbol.for('hello') === Symbol.for('hello')) // true;
+// 如何让 symbol1 === symbol2 ？        Symbol.for() ：创建全局唯一的值 ，如果存在就返回 Symbol，不存在就创建新的 Symbol
+// console.log('symbol1 === symbol2:', Symbol.for('hello') === Symbol.for('hello')) // true;
 
 const symbolObj = {
   name: 'tom',
@@ -68,7 +69,7 @@ console.log('[ Object.getOwnPropertySymbols(symbolObj) ]-69', Object.getOwnPrope
 console.log('[ Reflect.ownKeys(symbolObj) ]-71', Reflect.ownKeys(symbolObj))
 
 function foo(): never {
-  throw new Error()
+  throw new Error('报错了')
 }
 
 const a: 1 = foo() // 可以赋值，类型不会报错就证明了 never 类型是 1 的子类型
