@@ -1,10 +1,10 @@
-type A<T> = (x: T) => T
+export type A<T> = (x: T) => T
 
-type B = <T>(x: T) => T
+export type B = <T>(x: T) => T
 
-const numToNum: A<number> = x => x + 1
+export const numToNum: A<number> = x => x + 1
 
-const strToStr: B = function<T>(x: T) {
+export const strToStr: B = function<T>(x: T) {
   return x
 }
 

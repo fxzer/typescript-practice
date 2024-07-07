@@ -2,7 +2,7 @@ let validKey: keyof any // string | number | symbol
 
 const expKey: PropertyKey = 'name' // string | number | symbol
 
-const str: string = 'key'
+export const str: string = 'key'
 const num: number = 1
 const sym: symbol = Symbol('key')
 const obj1 = {}

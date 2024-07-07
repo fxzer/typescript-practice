@@ -40,3 +40,11 @@ const mySearch: ISearchFunc = function (source: string, subString: string) {
 
 type PersonMap1 = Record<'name', string> // { name: string; }
 type PersonMap2 = Record<number, string> // { [index: number]: Person }
+
+/** 由数据获取类型 */
+export const person = {
+  name:'tom',
+  age:18,
+  address:['北京','上海']
+}
+type IPerson = typeof person
