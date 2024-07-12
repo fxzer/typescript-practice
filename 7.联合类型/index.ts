@@ -17,6 +17,19 @@ interface IAdmin {
 }
 type TUnion3 = IUser | IAdmin
 
+// 联合类型中取值
+
+export interface PropsA {
+  onClick: () => void
+  onDrag: () => void
+  onDrop: () => void
+  class: string
+  style: string
+}
+type kpropsa = keyof PropsA & {} //  "onClick" | "onDrag" | "onDrop" | "class" | "style"
+// 取值并过滤
+type kevent = keyof PropsA & `on${string}` // "onClick" | "onDrag" | "onDrop"
+
 // type TUser  = {
 //   name: string,
 //   age: number,

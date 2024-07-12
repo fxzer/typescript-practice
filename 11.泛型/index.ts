@@ -49,3 +49,24 @@ function add3<T, K>(a: T, b: K): [T, K] {
 }
 console.log(add3<number, string>(1, '2'))
 console.log(add3<boolean, string>(true, '2'))
+
+/*  泛型推断 */
+
+// function createMessage<T>(message: T): T {
+//   const msg = {
+//     fail: '失败',
+//     success: '成功',
+//     ...message,
+//   }
+//   return (msg: string, type: keyof typeof msg | keyof T) => {
+//     console.log(msg[type])
+//   }
+// }
+
+// const message = createMessage({
+//   login: '登录成功',
+// })
+
+// message('登录成功', 'success')
+// message('登录失败', 'fail')
+// message('登录失败', 'login')
