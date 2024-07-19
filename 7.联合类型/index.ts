@@ -99,3 +99,13 @@ type Animal = Cat | Dog
 type LookUp<U, T> = U extends { type: T } ? U : never
 
 type lookres = LookUp<Animal, '🐶'> // Dog
+
+// ================== 交叉类型 转 联合类型 ==================
+type UnionToIntersection<T> = (T extends any ? (k: T) => void : never) extends ((k: infer I) => void) ? I : never
+/*
+联合类型依次判断是否是函数，然后取出函数的参数类型，最后取并集
+转换过程 ： (k: { name: string; }) => void) | ((k: { age: number; }) => void)
+转换结果 ： { name: string; } & { age: number; }
+*/
+type TUnion5 = { name: string } | { age: number }
+type Intersection5 = UnionToIntersection<TUnion5> // { name: string } & { age: number }
