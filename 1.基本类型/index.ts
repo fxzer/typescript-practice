@@ -41,11 +41,32 @@ function nerverFn2(hobby: Hobby) {
       break
     // 兜底逻辑处理
     default:
-    { const hobby2: never = hobby
-      break
+    {
+      const hobby2: never = hobby
+      return hobby2
     }
   }
 }
+
+/* unknown ： 相当于 类型安全的 any */
+let valueUnknow: unknown
+valueUnknow = 'hello'
+valueUnknow = 123
+valueUnknow = true
+valueUnknow = null
+valueUnknow = undefined
+valueUnknow = Symbol('hello')
+valueUnknow = { name: 'tom' }
+valueUnknow = [1, 2, 3]
+valueUnknow = () => {
+  console.log('hello world')
+}
+
+// valueUnknow() // 报错
+// valueUnknow.name // 报错
+// 类型断言
+// (valueUnknow as string).toUpperCase()
+// (valueUnknow as number).toFixed(2)
 
 /* Symbol类型 :创建唯一的值,解决对象属性覆盖的问题 */
 const symbol1 = Symbol('hello')
@@ -94,7 +115,7 @@ let str4: StrOrNum
 /*     类型层级关系   从上往下，上层包含下级
     1. any unknown
     2. Object
-    3.Number String Boolean Symbol
+    3. Number String Boolean Symbol
     4. number string boolean symbol
     5. 123 '123' true false
     6. null undefined void never
