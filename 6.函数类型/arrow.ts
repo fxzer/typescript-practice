@@ -31,3 +31,19 @@ createArray = function<T>(length: number, value: T): Array<T> {
   }
   return result
 }
+
+// 函数重载
+// 函数重载示例
+function parseValue(value: string): number
+function parseValue(value: number): string
+function parseValue(value: string | number): number | string {
+  if (typeof value === 'string') {
+    return Number.parseFloat(value)
+  }
+  else {
+    return value.toString()
+  }
+}
+
+parseValue('42') // 42
+parseValue(42) // "42"
